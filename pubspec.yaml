@@ -33,6 +33,8 @@ dependencies:
 
   syncfusion_flutter_gauges: ^19.2.62
 
+  intl: ^0.17.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:order_test/Model/order_model.dart';
-import 'package:order_test/Orders/cubit/orders_cubit.dart';
+import 'package:order_test/UI/Orders/cubit/orders_cubit.dart';
 
 
 import 'orders_list_item.dart';
