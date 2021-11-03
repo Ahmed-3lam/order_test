@@ -7,16 +7,13 @@ import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 import '../../m_colors.dart';
 
-
-
-
 class ordersListItem extends StatelessWidget {
   final BuildContext context;
 
   final List<OrderModel> model;
-  final int index ;
+  final int index;
 
-  const ordersListItem( this.context, this.model, this.index) ;
+  const ordersListItem(this.context, this.model, this.index);
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +28,16 @@ class ordersListItem extends StatelessWidget {
     Color _packedStateColor = MColors.colorConfirmedStatues;
     Color _shippedStateColor = MColors.colorConfirmedStatues;
     Color _deliveredStateColor = MColors.colorConfirmedStatues;
-    Map<dynamic,dynamic> _statusMap ={
-      "CONFIRMED":0,
-      "DELIVERED":1,
-      "RETURNED":2,
-      "ORDERED":3
+    Map<dynamic, dynamic> _statusMap = {
+      "CONFIRMED": 0,
+      "DELIVERED": 1,
+      "RETURNED": 2,
+      "ORDERED": 3
     };
 
     Color _linearBarColor = MColors.colorConfirmedStatues;
-    double _linearBarStep = double.tryParse(_statusMap[model[index].status!].toString())!;
+    double _linearBarStep =
+        double.tryParse(_statusMap[model[index].status!].toString())!;
 
     switch (int.tryParse(_statusMap[model[index].status!].toString())) {
       case 0:
@@ -87,8 +85,12 @@ class ordersListItem extends StatelessWidget {
         // Get.to(() =>  OrderDetailsScreen(model.data![index].id!));
       },
       child: ExpansionTile(
-          title: Text("Order Number"+" "+ model[index].id!.toString()),
-backgroundColor: Colors.grey[50],
+          title: Text("Company: " + model[index].company!),
+          subtitle: Text(
+            "Order Number:" + " " + model[index].id!.toString(),
+            style: TextStyle(fontSize: 10, color: Colors.grey),
+          ),
+          backgroundColor: Colors.grey[50],
           children: [
             // Text(
             //   "المنتج بحالة جيدة و مغلف باحكام، يتم استرجاعه خلال 3 ايام ",
@@ -96,8 +98,8 @@ backgroundColor: Colors.grey[50],
             // ),
             // Gaps.vGap8,
             Container(
-
-                margin: const EdgeInsets.symmetric(vertical: 15, horizontal:100),
+                margin:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 100),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   // border: Border.all(
@@ -110,12 +112,11 @@ backgroundColor: Colors.grey[50],
                 ),
                 child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 5),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 5),
                     child: Column(
                       children: [
                         Container(
-
-
                           margin: const EdgeInsets.only(bottom: 8),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -154,9 +155,10 @@ backgroundColor: Colors.grey[50],
                           ),
                           orientation: LinearGaugeOrientation.vertical,
                           isAxisInversed:
-                          Localizations.localeOf(context).languageCode == 'ar'
-                              ? true
-                              : false,
+                              Localizations.localeOf(context).languageCode ==
+                                      'ar'
+                                  ? true
+                                  : false,
                           minimum: 0,
                           maximum: 3,
                           labelOffset: 12,
@@ -186,8 +188,8 @@ backgroundColor: Colors.grey[50],
                           ],
                           markerPointers: <LinearMarkerPointer>[
                             LinearWidgetPointer(
-                              value: double.parse(_statusMap[model[index].status!].toString()),
-
+                              value: double.parse(
+                                  _statusMap[model[index].status!].toString()),
                               position: LinearElementPosition.cross,
                               child: Container(
                                 width: 18,
@@ -205,7 +207,12 @@ backgroundColor: Colors.grey[50],
                               ),
                             ),
                             LinearWidgetPointer(
-                              enableAnimation:double.parse(_statusMap[model[index].status!].toString()) ==_packedState? true:false,
+                              enableAnimation: double.parse(
+                                          _statusMap[model[index].status!]
+                                              .toString()) ==
+                                      _packedState
+                                  ? true
+                                  : false,
                               value: _packedState,
                               position: LinearElementPosition.cross,
                               child: Container(
@@ -225,7 +232,12 @@ backgroundColor: Colors.grey[50],
                             ),
                             LinearWidgetPointer(
                               value: _shippedState,
-                              enableAnimation: double.parse(_statusMap[model[index].status!].toString()) ==_shippedState? true:false,
+                              enableAnimation: double.parse(
+                                          _statusMap[model[index].status!]
+                                              .toString()) ==
+                                      _shippedState
+                                  ? true
+                                  : false,
                               position: LinearElementPosition.cross,
                               child: Container(
                                 width: 18,
@@ -244,7 +256,12 @@ backgroundColor: Colors.grey[50],
                             ),
                             LinearShapePointer(
                               value: _deliveredState,
-                              enableAnimation: double.parse(_statusMap[model[index].status!].toString()) ==_deliveredState? true:false,
+                              enableAnimation: double.parse(
+                                          _statusMap[model[index].status!]
+                                              .toString()) ==
+                                      _deliveredState
+                                  ? true
+                                  : false,
                               color: _deliveredStateColor,
                               width: 18,
                               height: 18,
@@ -258,9 +275,6 @@ backgroundColor: Colors.grey[50],
                   ),
                 )),
           ]),
-
-
     );
   }
 }
-
