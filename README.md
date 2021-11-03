@@ -10,5 +10,6 @@ https://user-images.githubusercontent.com/85360095/140047588-fc7800bc-99b2-4381-
 ## StateManagment:
 -Used Cubit (Bloc)
 
-
+## Charts:
+-Used syncfusion_flutter_charts
 
